@@ -33,6 +33,7 @@ export default function Home() {
         }}>
           Your Epic Journey Awaits
         </h2>
+        <div style={{ fontSize: '13px', opacity: 0.95, marginTop: '-6px', marginBottom: '10px' }}>壮大な旅があなたを待っている</div>
         <p style={{ 
           opacity: 0.9, 
           fontSize: '18px',
