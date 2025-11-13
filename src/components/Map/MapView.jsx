@@ -3,6 +3,8 @@ import { MapContainer, TileLayer, Polyline, Marker, Popup, LayersControl } from 
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { useQuest } from '../../context/QuestContext.js'
+import SeverityOverlay from './SeverityOverlay.jsx'
+import { FEATURE_FLAGS } from '../../utils/constants.js'
 
 // Adjust default marker path fix
 delete L.Icon.Default.prototype._getIconUrl
@@ -25,7 +27,7 @@ export default function MapView() {
   }, [route])
 
   return (
-    <div className="card" style={{ height: 520 }}>
+    <div className="card" style={{ height: 520, position: 'relative' }}>
       <MapContainer style={{ height: '100%', width: '100%', borderRadius: 12 }} bounds={bounds} scrollWheelZoom>
         <LayersControl position="topright">
           <LayersControl.BaseLayer checked name="Street">
@@ -42,6 +44,7 @@ export default function MapView() {
         {route?.geometry?.length ? (
           <>
             <Polyline positions={route.geometry.map((p) => [p.lat, p.lon])} pathOptions={{ color: '#FF6B35', weight: 5 }} />
+            <SeverityOverlay route={route} />
             {route.from && (
               <Marker position={[route.from.lat, route.from.lon]}>
                 <Popup>Start: {route.from.name}</Popup>
@@ -55,7 +58,9 @@ export default function MapView() {
           </>
         ) : null}
       </MapContainer>
+      {!route?.geometry?.length && FEATURE_FLAGS.skeletons ? (
+        <div className="skeleton" aria-hidden style={{ position: 'absolute', inset: 12, borderRadius: 12 }} />
+      ) : null}
     </div>
   )
 }
-

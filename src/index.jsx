@@ -9,6 +9,7 @@ import './styles/animations.css'
 import { themes } from './styles/themes.js'
 import { AuthProvider } from './context/AuthContext.js'
 import { QuestProvider } from './context/QuestContext.js'
+import { ToastProvider } from './context/ToastContext.js'
 
 const root = createRoot(document.getElementById('root'))
 const queryClient = new QueryClient()
@@ -19,9 +20,11 @@ root.render(
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <QuestProvider>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
+            <ToastProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </ToastProvider>
           </QuestProvider>
         </AuthProvider>
       </QueryClientProvider>
@@ -34,4 +37,3 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js').catch(() => {})
   })
 }
-

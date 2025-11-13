@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
 import { useQuest } from '../../context/QuestContext.js'
 import { useWeather } from '../../hooks/useWeather.js'
+import SkeletonCard from '../Feedback/SkeletonCard.jsx'
+import { FEATURE_FLAGS } from '../../utils/constants.js'
 
 function formatTime(iso) {
   if (!iso) return '-'
@@ -16,7 +18,7 @@ export default function WeatherWidget() {
     <section className="grid grid-3">
       <div className="card" aria-live="polite">
         <h3 style={title}>Current Weather</h3>
-        {current.isLoading ? <div>Loading weather…</div> : current.isError ? <div role="alert">Failed to load</div> : (
+        {current.isLoading ? (FEATURE_FLAGS.skeletons ? <SkeletonCard height={140} /> : <div>Loading weather…</div>) : current.isError ? <div role="alert">Failed to load</div> : (
           <div style={{ display: 'grid', gap: 8 }}>
             <div style={{ fontSize: 36 }}>🌤️</div>
             <div style={{ fontSize: 24, color: 'var(--gold)', fontWeight: 700 }}>{Math.round(current.data?.temp || 0)}°C</div>
@@ -29,7 +31,7 @@ export default function WeatherWidget() {
       </div>
       <div className="card">
         <h3 style={title}>Hourly Preview</h3>
-        {forecast.isLoading ? <div>Loading forecast…</div> : forecast.isError ? <div role="alert">Failed to load</div> : (
+        {forecast.isLoading ? (FEATURE_FLAGS.skeletons ? <SkeletonCard height={120} /> : <div>Loading forecast…</div>) : forecast.isError ? <div role="alert">Failed to load</div> : (
           <div style={{ display: 'flex', gap: 12, overflowX: 'auto' }}>
             {renderHourly(forecast.data).slice(0, 12)}
           </div>
@@ -70,4 +72,3 @@ function renderHourly(data) {
   }
   return []
 }
-

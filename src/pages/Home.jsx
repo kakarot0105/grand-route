@@ -4,6 +4,11 @@ import MapView from '../components/Map/MapView.jsx'
 import WeatherWidget from '../components/WeatherWidget/WeatherWidget.jsx'
 import RouteCard from '../components/RouteCard/RouteCard.jsx'
 import { useQuest } from '../context/QuestContext.js'
+import PreviewPlayer from '../components/Preview/PreviewPlayer.jsx'
+import HUD from '../components/Preview/HUD.jsx'
+import FAB from '../components/Navigation/FAB.jsx'
+import SeverityLegend from '../components/WeatherWidget/SeverityLegend.jsx'
+import WeatherGearTips from '../components/WeatherWidget/WeatherGearTips.jsx'
 
 export default function Home() {
   const { route } = useQuest()
@@ -18,7 +23,14 @@ export default function Home() {
         <MapView />
       </section>
       <WeatherWidget />
+      <div className="grid grid-2">
+        <SeverityLegend />
+        <WeatherGearTips />
+      </div>
+      <PreviewPlayer />
       <RouteCard route={route} />
+      <HUD />
+      <FAB />
     </main>
   )
 }

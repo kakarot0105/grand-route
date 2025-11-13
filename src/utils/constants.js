@@ -18,3 +18,11 @@ export const QUEST_TYPES = [
 
 export const DEFAULT_START = { lat: 40.7128, lon: -74.006 }
 
+export const FEATURE_FLAGS = {
+  bottomNav: true,
+  fab: true,
+  skeletons: true,
+  toasts: true,
+  severityLegend: true,
+  xpRing: true
+}
