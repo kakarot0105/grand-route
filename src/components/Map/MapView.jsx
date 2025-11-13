@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css'
 import { useQuest } from '../../context/QuestContext.js'
 import SeverityOverlay from './SeverityOverlay.jsx'
 import { FEATURE_FLAGS } from '../../utils/constants.js'
+import QuestPins from './QuestPins.jsx'
 
 // Adjust default marker path fix
 delete L.Icon.Default.prototype._getIconUrl
@@ -57,7 +58,14 @@ export default function MapView() {
             )}
           </>
         ) : null}
+        <QuestPins />
       </MapContainer>
+      {route?.geometry?.length ? (
+        <div className="glass-overlay" style={{ position: 'absolute', top: 12, left: 12, padding: '10px 12px' }}>
+          <div style={{ fontWeight: 700, fontSize: 12 }}>ルート情報</div>
+          <div style={{ fontSize: 12, opacity: 0.9 }}>距離: {route.distanceKm?.toFixed?.(1)} km</div>
+        </div>
+      ) : null}
       {!route?.geometry?.length && FEATURE_FLAGS.skeletons ? (
         <div className="skeleton" aria-hidden style={{ position: 'absolute', inset: 12, borderRadius: 12 }} />
       ) : null}

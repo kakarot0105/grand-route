@@ -31,6 +31,7 @@ export default function Dashboard() {
         }}>
           Quest Dashboard
         </h2>
+        <div style={{ fontSize: '12px', opacity: 0.9, marginTop: '-6px', marginBottom: '6px' }}>クエストダッシュボード</div>
         <p style={{ opacity: 0.8, marginBottom: 0 }}>
           Track your epic adventures and achievements
         </p>
@@ -166,4 +167,3 @@ export default function Dashboard() {
     </main>
   )
 }
-

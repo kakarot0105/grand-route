@@ -36,19 +36,22 @@ export default function Header() {
           onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2) rotate(10deg)'}
           onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1) rotate(0deg)'}
           >🗺️</span>
-          <h1 style={{ 
-            margin: 0, 
-            fontFamily: 'Bangers, cursive', 
-            letterSpacing: 1.5, 
-            textShadow: '2px 2px 0 #001728',
-            background: 'linear-gradient(135deg, var(--gold), var(--orange))',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            fontSize: '24px'
-          }}>
-            GRAND ROUTE
-          </h1>
+          <div>
+            <h1 style={{ 
+              margin: 0, 
+              fontFamily: 'Bangers, cursive', 
+              letterSpacing: 1.5, 
+              textShadow: '2px 2px 0 #001728',
+              background: 'linear-gradient(135deg, var(--gold), var(--orange))',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontSize: '24px'
+            }}>
+              GRAND ROUTE
+            </h1>
+            <div style={{ fontSize: 12, opacity: 0.9, marginTop: 2 }}>グランド・ルート — 冒険の旅へ</div>
+          </div>
         </div>
         <nav style={{ display: 'flex', gap: 8 }} aria-label="Primary">
           {nav.map((n) => (
