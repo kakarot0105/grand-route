@@ -5,6 +5,7 @@ import { FEATURE_FLAGS } from '../../utils/constants.js'
 const tabs = [
   { to: '/', label: 'Home', emoji: '🏠' },
   { to: '/dashboard', label: 'Plan', emoji: '🧭' },
+  { to: '/create-quest', label: 'Create', emoji: '🗺️' },
   { to: '/community', label: 'Community', emoji: '👥' },
   { to: '/leaderboard', label: 'Ranks', emoji: '🏆' },
   { to: '/profile', label: 'Profile', emoji: '🧑‍🚀' }

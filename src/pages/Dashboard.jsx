@@ -1,4 +1,5 @@
 import React from 'react'
+import WeatherAlongRoute from '../components/Map/WeatherAlongRoute'
 
 export default function Dashboard() {
   const stats = [
@@ -110,6 +111,20 @@ export default function Dashboard() {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="card animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <h3 style={{
+          fontFamily: 'Bangers, cursive',
+          marginTop: 0,
+          fontSize: '24px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px'
+        }}>
+          <span>🗺️</span> Route Weather Preview
+        </h3>
+        <WeatherAlongRoute origin="San Francisco, CA" destination="Los Angeles, CA" />
       </div>
 
       <div className="grid grid-3 animate-fade-in" style={{ animationDelay: '0.2s' }}>

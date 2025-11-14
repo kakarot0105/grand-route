@@ -6,6 +6,7 @@ import { useTheme } from '../../context/ThemeContext.js'
 const nav = [
   { to: '/', label: 'Home' },
   { to: '/dashboard', label: 'Dashboard' },
+  { to: '/create-quest', label: 'Create Quest' },
   { to: '/community', label: 'Community' },
   { to: '/leaderboard', label: 'Leaderboard' },
   { to: '/settings', label: 'Settings' }

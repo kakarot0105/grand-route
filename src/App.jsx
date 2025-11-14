@@ -11,6 +11,7 @@ import Profile from './pages/Profile.jsx'
 import Community from './pages/Community.jsx'
 import Leaderboard from './pages/Leaderboard.jsx'
 import Settings from './pages/Settings.jsx'
+import CreateQuest from './pages/CreateQuest.jsx'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/community" element={<Community />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/create-quest" element={<CreateQuest />} />
       </Routes>
       <BottomNav />
       <Mascot />

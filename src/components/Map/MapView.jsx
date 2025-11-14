@@ -4,6 +4,7 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { useQuest } from '../../context/QuestContext.js'
 import SeverityOverlay from './SeverityOverlay.jsx'
+import WeatherOverlay from './WeatherOverlay.jsx'
 import { FEATURE_FLAGS } from '../../utils/constants.js'
 import QuestPins from './QuestPins.jsx'
 
@@ -46,6 +47,7 @@ export default function MapView() {
           <>
             <Polyline positions={route.geometry.map((p) => [p.lat, p.lon])} pathOptions={{ color: '#FF6B35', weight: 5 }} />
             <SeverityOverlay route={route} />
+            <WeatherOverlay route={route} />
             {route.from && (
               <Marker position={[route.from.lat, route.from.lon]}>
                 <Popup>Start: {route.from.name}</Popup>
